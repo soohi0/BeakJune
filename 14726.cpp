@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+int n;
+vector<bool> vb;
+bool isValid(string s)
+{
+    int sizeidx = s.length()-1;
+    for(int i = sizeidx; i >= 0; i--)
+    {
+        if( i % 2 == 1){
+            //여기서 홀수가 짝수번째자리수
+            int num = s[i] - '0';
+            cout << num << endl;
+            if( num >= 10)
+            {
+                string ss = to_string(num);
+                num = (ss[0]-'0') + (ss[1] - '0');
+            }
+            s[i] = num+'0';
+        }
+    }
+    int sum = 0;
+    for(int i =0; i < 16; i++)
+    {
+        sum += (s[i]-'0');
+    }
+    if(sum %10 == 0)
+        return true;
+    else return false;
+}
+int main()
+{
+    cin >> n;
+    
+    for(int i = 0; i < n; i++)
+    {
+        string s;
+        cin >> s;
+        vb.push_back(isValid(s));
+
+    }
+    
+}
