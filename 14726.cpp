@@ -9,10 +9,8 @@ bool isValid(string s)
     int sizeidx = s.length()-1;
     for(int i = sizeidx; i >= 0; i--)
     {
-        if( i % 2 == 1){
-            //여기서 홀수가 짝수번째자리수
-            int num = s[i] - '0';
-            cout << num << endl;
+        if( i % 2 == 0){
+            int num = (s[i] - '0') * 2;
             if( num >= 10)
             {
                 string ss = to_string(num);
@@ -40,6 +38,11 @@ int main()
         cin >> s;
         vb.push_back(isValid(s));
 
+    }
+    for(int i = 0; i < vb.size(); i++)
+    {
+        if(vb[i]) cout << "T" << endl;
+        else cout << "F" << endl;
     }
     
 }
