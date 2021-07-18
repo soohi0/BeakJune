@@ -1,32 +1,52 @@
 #include <iostream>
-#include <stdio.h>
-#include <string>
-#include <math.h>
-#include <bitset>
+#include<cstring>
 
 using namespace std;
 
-short convert(short n) {
-    short dec = 0, i = 0, rem;
-    while (n != 0) {
-        rem = n % 10;
-        n /= 10;
-        dec += rem * pow(2, i);
-        ++i;
-    }
-    return dec;
-}
+char a[100001];
+char b[100001];
 
 int main() {
-    short  num1, num2;
-    cin >> num1 >> num2;
-    short bnum1 = convert(num1);
-    short bnum2 = convert(num2);
-    cout << bitset<6>(bnum1&bnum2)<<endl;
-    cout << bitset<6>(bnum1|bnum2)<<endl;
-    cout << bitset<6>(bnum1^bnum2)<<endl;
-    cout << bitset<6>(~bnum1)<<endl;
-    cout << bitset<6>(~bnum2)<<endl;
-
+    cin >> a >> b;
+    for(int i = 0; i <strlen(a); i++)
+    {
+        if(a[i] == '1' && b[i] == '1'){
+            cout << '1';
+        }
+        else cout << '0';
+    }
+    cout << endl;
+    for(int i = 0; i <strlen(a); i++)
+    {
+        if(a[i] == '1' || b[i] == '1'){
+            cout << '1';
+        }
+        else cout << '0';
+    }
+    cout << endl;
+    for(int i = 0; i < strlen(a); i++)
+    {
+        if(a[i]!= b[i]){
+            cout << '1';
+        }
+        else cout << '0';
+    }
+    cout << endl;
+    for(int i = 0; i <strlen(a); i++)
+    {
+        if(a[i] == '1'){
+            cout << '0';
+        }
+        else cout << '1';
+    }
+    cout << endl;
+    for(int i = 0; i <strlen(b); i++)
+    {
+        if(b[i] == '1'){
+            cout << '0';
+        }
+        else cout << '1';
+    }
+    cout << endl;
 
 }
