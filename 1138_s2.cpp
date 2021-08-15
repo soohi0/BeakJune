@@ -19,16 +19,21 @@ int main()
     for(int i = 1; i < N; i++)
     {
         int morethan = arr[i];
-        cout << " morethan : " <<morethan << endl;
+        //cout << " morethan : " <<morethan << endl;
         bool on = true;
         for(int j = 0; j < N; j++)
         {
             
             if(morethan == 0 && on)
             {
-                cout << "i : " << i << " j : " << j << " result : " << result[j] << endl;
-                result[j] = i;
-                on = false;
+                //cout << "i : " << i << " j : " << j << " result : " << result[j] << endl;
+                if(result[j] >= i+1)
+                {
+                    result[j] = i+1;
+                    on = false;
+
+                }
+                
             }
             else{
                 if(result[j] > i+1)
